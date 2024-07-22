@@ -61,6 +61,11 @@ export const SITE_DESCRIPTION =
   process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
   SITE_DOMAIN;
 
+export const SITE_ABOUT = process.env.NEXT_PUBLIC_SITE_ABOUT;
+
+export const HAS_DEFINED_SITE_DESCRIPTION =
+  Boolean(process.env.NEXT_PUBLIC_SITE_DESCRIPTION);
+
 // STORAGE: DATABASE
 export const HAS_DATABASE =
   Boolean(process.env.POSTGRES_URL);
@@ -114,6 +119,12 @@ export const CURRENT_STORAGE: StorageType =
 
 // SETTINGS
 
+export const DEFAULT_THEME =
+  process.env.NEXT_PUBLIC_DEFAULT_THEME === 'dark'
+    ? 'dark'
+    : process.env.NEXT_PUBLIC_DEFAULT_THEME === 'light'
+      ? 'light'
+      : 'system';
 export const PRO_MODE_ENABLED =
   process.env.NEXT_PUBLIC_PRO_MODE === '1';
 export const GRID_HOMEPAGE_ENABLED =
@@ -179,11 +190,14 @@ export const CONFIG_CHECKLIST_STATUS = {
   ),
   hasDomain: Boolean(process.env.NEXT_PUBLIC_SITE_DOMAIN),
   hasTitle: Boolean(process.env.NEXT_PUBLIC_SITE_TITLE),
-  hasDescription: Boolean(process.env.NEXT_PUBLIC_SITE_DESCRIPTION),
+  hasDescription: HAS_DEFINED_SITE_DESCRIPTION,
+  hasAbout: Boolean(process.env.NEXT_PUBLIC_SITE_ABOUT),
+  hasDefaultTheme: Boolean(process.env.NEXT_PUBLIC_DEFAULT_THEME),
   showRepoLink: SHOW_REPO_LINK,
   showSocial: SHOW_SOCIAL,
   showFilmSimulations: SHOW_FILM_SIMULATIONS,
   showExifInfo: SHOW_EXIF_DATA,
+  defaultTheme: DEFAULT_THEME,
   isProModeEnabled: PRO_MODE_ENABLED,
   isGridHomepageEnabled: GRID_HOMEPAGE_ENABLED,
   isStaticallyOptimized: (

@@ -44,10 +44,13 @@ export default function SiteChecklistClient({
   hasDomain,
   hasTitle,
   hasDescription,
+  hasAbout,
+  hasDefaultTheme,
   showRepoLink,
   showSocial,
   showFilmSimulations,
   showExifInfo,
+  defaultTheme,
   isProModeEnabled,
   isGridHomepageEnabled: isGridFirst,
   isStaticallyOptimized,
@@ -335,7 +338,7 @@ export default function SiteChecklistClient({
                 'Not explicitly setting a domain may cause ' + 
                 'certain features to behave unexpectedly',
               })}
-            Store in environment variable (displayed in top-right nav):
+            Store in environment variable (seen in top-right nav):
             {renderEnvVars(['NEXT_PUBLIC_SITE_DOMAIN'])}
           </ChecklistRow>
           <ChecklistRow
@@ -343,7 +346,7 @@ export default function SiteChecklistClient({
             status={hasTitle}
             optional
           >
-            Store in environment variable (used in page titles):
+            Store in environment variable (seen in browser tab):
             {renderEnvVars(['NEXT_PUBLIC_SITE_TITLE'])}
           </ChecklistRow>
           <ChecklistRow
@@ -351,10 +354,17 @@ export default function SiteChecklistClient({
             status={hasDescription}
             optional
           >
-            Store in environment variable (mainly used for OG meta):
+            Store in environment variable (seen in nav, under title):
             {renderEnvVars(['NEXT_PUBLIC_SITE_DESCRIPTION'])}
           </ChecklistRow>
-          
+          <ChecklistRow
+            title="Add about"
+            status={hasAbout}
+            optional
+          >
+            Store in environment variable (seen in grid sidebar):
+            {renderEnvVars(['NEXT_PUBLIC_SITE_ABOUT'])}
+          </ChecklistRow>
         </Checklist>
         {!simplifiedView && <>
           <Checklist
@@ -417,15 +427,6 @@ export default function SiteChecklistClient({
             optional
           >
             <ChecklistRow
-              title="Pro mode"
-              status={isProModeEnabled}
-              optional
-            >
-              Set environment variable to {'"1"'} to enable
-              higher quality image storage:
-              {renderEnvVars(['NEXT_PUBLIC_PRO_MODE'])}
-            </ChecklistRow>
-            <ChecklistRow
               title="Grid homepage"
               status={isGridFirst}
               optional
@@ -433,6 +434,27 @@ export default function SiteChecklistClient({
               Set environment variable to {'"1"'} to show grid layout
               on homepage:
               {renderEnvVars(['NEXT_PUBLIC_GRID_HOMEPAGE'])}
+            </ChecklistRow>
+            <ChecklistRow
+              title={`Default theme: ${defaultTheme}`}
+              status={hasDefaultTheme}
+              optional
+            >
+              {'Set environment variable to \'light\' or \'dark\''}
+              {' '}
+              to configure initial theme
+              {' '}
+              (defaults to {'\'system\''}):
+              {renderEnvVars(['NEXT_PUBLIC_DEFAULT_THEME'])}
+            </ChecklistRow>
+            <ChecklistRow
+              title="Pro mode"
+              status={isProModeEnabled}
+              optional
+            >
+              Set environment variable to {'"1"'} to enable
+              higher quality image storage:
+              {renderEnvVars(['NEXT_PUBLIC_PRO_MODE'])}
             </ChecklistRow>
             <ChecklistRow
               title="Static optimization"
