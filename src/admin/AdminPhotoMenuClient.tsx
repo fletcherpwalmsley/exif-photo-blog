@@ -33,7 +33,7 @@ export default function AdminPhotoMenuClient({
 
   const favIconClass = 'translate-x-[-1px] translate-y-[0.5px]';
 
-  const items = useMemo(() => {
+  const adminItems = useMemo(() => {
     const items: ComponentProps<typeof MoreMenuItem>[] = [{
       label: 'Edit',
       icon: <FaRegEdit size={14} />,
@@ -96,12 +96,30 @@ export default function AdminPhotoMenuClient({
     registerAdminUpdate,
   ]);
 
+  const userItems = useMemo(() => {
+    const items: ComponentProps<typeof MoreMenuItem>[] = [{
+      label: 'Download',
+      icon: <MdOutlineFileDownload
+        size={17}
+        className="translate-x-[-1.5px] translate-y-[-0.5px]"
+      />,
+      href: photo.url,
+      hrefDownloadName: photo.url.split('/').pop(),
+    }];
+    return items;
+  }, [
+    photo,
+  ]);
+
   return (
     isUserSignedIn
       ? <MoreMenu {...{
-        items,
+        items: adminItems,
         ...props,
       }}/>
-      : null
+      : <MoreMenu {...{
+        items: userItems,
+        ...props,
+      }}/>
   );
 }
