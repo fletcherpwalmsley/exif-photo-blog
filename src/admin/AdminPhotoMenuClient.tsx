@@ -33,7 +33,7 @@ export default function AdminPhotoMenuClient({
 
   const favIconClass = 'translate-x-[-1px] translate-y-[0.5px]';
 
-  const items = useMemo(() => {
+  const adminItems = useMemo(() => {
     const items: ComponentProps<typeof MoreMenuItem>[] = [{
       label: 'Edit',
       icon: <FaRegEdit size={14} />,
@@ -99,7 +99,7 @@ export default function AdminPhotoMenuClient({
   return (
     isUserSignedIn
       ? <MoreMenu {...{
-        items,
+        items: adminItems,
         ...props,
       }}/>
       : null
