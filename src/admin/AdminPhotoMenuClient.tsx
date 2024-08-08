@@ -98,11 +98,6 @@ export default function AdminPhotoMenuClient({
 
   const userItems = useMemo(() => {
     const items: ComponentProps<typeof MoreMenuItem>[] = [{
-      label: 'Edit',
-      icon: <FaRegEdit size={14} />,
-      href: pathForAdminPhotoEdit(photo.id),
-    }];
-    items.push({
       label: 'Download',
       icon: <MdOutlineFileDownload
         size={17}
@@ -110,7 +105,7 @@ export default function AdminPhotoMenuClient({
       />,
       href: photo.url,
       hrefDownloadName: photo.url.split('/').pop(),
-    });
+    }];
     return items;
   }, [
     photo,
