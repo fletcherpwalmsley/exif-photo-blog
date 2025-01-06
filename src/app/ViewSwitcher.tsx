@@ -6,6 +6,7 @@ import IconContact from '@/site/IconContact';
 import {
   PATH_FEED_INFERRED,
   PATH_GRID_INFERRED,
+  PATH_CONTACT,
 } from '@/app/paths';
 import IconSearch from './IconSearch';
 import { useAppState } from '@/state/AppState';
@@ -45,7 +46,7 @@ export default function ViewSwitcher({
   const renderItemContact = () =>
     <SwitcherItem
       icon={<IconContact />}
-      href={PATH_GRID_INFERRED}
+      href={PATH_CONTACT}
       active={currentSelection === 'contact'}
       noPadding
     />;
