@@ -2,6 +2,7 @@ import Switcher from '@/components/Switcher';
 import SwitcherItem from '@/components/SwitcherItem';
 import IconFeed from '@/site/IconFeed';
 import IconGrid from '@/site/IconGrid';
+import IconContact from '@/site/IconContact';
 import {
   PATH_ADMIN_PHOTOS,
   PATH_FEED_INFERRED,
@@ -12,7 +13,7 @@ import IconSearch from './IconSearch';
 import { useAppState } from '@/state/AppState';
 import { GRID_HOMEPAGE_ENABLED } from './config';
 
-export type SwitcherSelection = 'feed' | 'grid' | 'admin';
+export type SwitcherSelection = 'feed' | 'grid' | 'contact' |'admin';
 
 export default function ViewSwitcher({
   currentSelection,
@@ -39,11 +40,20 @@ export default function ViewSwitcher({
       noPadding
     />;
 
+  const renderItemContact = () =>
+    <SwitcherItem
+      icon={<IconContact />}
+      href={PATH_GRID_INFERRED}
+      active={currentSelection === 'contact'}
+      noPadding
+    />;
+
   return (
     <div className="flex gap-1 sm:gap-2">
       <Switcher>
         {GRID_HOMEPAGE_ENABLED ? renderItemGrid() : renderItemFeed()}
         {GRID_HOMEPAGE_ENABLED ? renderItemFeed() : renderItemGrid()}
+        {renderItemContact()}
         {showAdmin &&
           <SwitcherItem
             icon={<BiLockAlt size={16} className="translate-y-[-0.5px]" />}
