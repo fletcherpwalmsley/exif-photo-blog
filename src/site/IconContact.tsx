@@ -20,8 +20,8 @@ export default function IconContact({
       xmlns="http://www.w3.org/2000/svg"
     >
       {includeTitle && <title>Contact</title>}
-      <rect x="12" y="14" width="4" height="4" rx="1" strokeWidth="1.25"/>
-      <circle x="14" y="12" r="2"/>
+      <rect x="5" y="12" width="12" height="10" rx="1" strokeWidth="1.25"/>
+      <circle x="14" y="14" r="4"/>
     </svg>
   );
 };

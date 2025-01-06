@@ -7,6 +7,7 @@ import {
   PATH_ADMIN_PHOTOS,
   PATH_FEED_INFERRED,
   PATH_GRID_INFERRED,
+  PATH_CONTACT,
 } from '@/site/paths';
 import { BiLockAlt } from 'react-icons/bi';
 import IconSearch from './IconSearch';
@@ -43,7 +44,7 @@ export default function ViewSwitcher({
   const renderItemContact = () =>
     <SwitcherItem
       icon={<IconContact />}
-      href={PATH_GRID_INFERRED}
+      href={PATH_CONTACT}
       active={currentSelection === 'contact'}
       noPadding
     />;
