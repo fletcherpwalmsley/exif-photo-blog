@@ -2,7 +2,8 @@ import Container from '@/components/Container';
 import SiteGrid from '@/components/SiteGrid';
 import ImageMedium from '@/components/image/ImageMedium';
 import EmailInput from '@/components/EmailInput';
-import { clsx } from 'clsx/lite';
+
+// import { clsx } from 'clsx/lite';
 
 export default async function AdminConfigurationPage() {
   return (
@@ -26,7 +27,7 @@ export default async function AdminConfigurationPage() {
                 <p>
                 Hello! My name is Fletcher Walmsley! - Welcome to my photo blog! <br/> <br/>
                 This is a place where I add photos I think are cool. <br/>
-                The photos I add here are ones I think are photographically good, or because I like the people/place/vibe in them, or because it's a film photo and I need to post somewhere to justify paying ~$1.4 a photo! <br/> <br/>
+                The photos I add here are ones I think are photographically good, or because I like the people/place/vibe in them, or because it is a film photo and I need to post somewhere to justify paying ~$1.4 a photo! <br/> <br/>
                 The decent pics are usually taken on my Sony A6400 and can be found under the /shot-on/sony/ilce-6400 tag. <br/>
                 Film photos can be found under the /tag/film tag. Each film photo is also tagged with the film stock used. E.g. /tag/fujifilm-200
                 </p>
