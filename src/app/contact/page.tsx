@@ -33,21 +33,21 @@ export default async function AdminConfigurationPage() {
                 </p>
               </div>
             </div>
-            </Container>
-            <EmailInput/>
+          </Container>
+          <EmailInput/>
           <Container color={'blue'}>
-          <div className="max-w-xl w-full">
-            <div className="space-y-6">
-              <p>
-              About Me: <br/>
-              I am a Software Developer who is currently based in Christchurch, New Zealand.
-              I love everything outdoors and attempt to bring a camera of some sorts along with me <br/> <br/>
-              While I am a Software Engineer, my area of expertise is not in web development.
-              So I will not claim to have created this website, but rather forked and modified the excellent exif-photo-blog template by Sam Becker 
-              </p>
+            <div className="max-w-xl w-full">
+              <div className="space-y-6">
+                <p>
+                About Me: <br/>
+                I am a Software Developer who is currently based in Christchurch, New Zealand.
+                I love everything outdoors and attempt to bring a camera of some sorts along with me <br/> <br/>
+                While I am a Software Engineer, my area of expertise is not in web development.
+                So I will not claim to have created this website, but rather forked and modified the excellent exif-photo-blog template by Sam Becker 
+                </p>
+              </div>
             </div>
-          </div>
-        </Container>
+          </Container>
         </div>}
     />
   );
