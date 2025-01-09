@@ -2,10 +2,14 @@ import Container from '@/components/Container';
 import SiteGrid from '@/components/SiteGrid';
 import ImageMedium from '@/components/image/ImageMedium';
 import EmailInput from '@/components/EmailInput';
+import PhotoTag from '@/tag/PhotoTag';
+import PhotoCamera from '@/camera/PhotoCamera';
+import {Camera} from '@/camera/index';
 
 // import { clsx } from 'clsx/lite';
 
 export default async function AdminConfigurationPage() {
+  const SONY_CAMERA: Camera = { make: 'Sony', model: 'ILCE-6400' };
   return (
     <SiteGrid
       contentMain={
@@ -27,23 +31,38 @@ export default async function AdminConfigurationPage() {
                 <p>
                 Hello! My name is Fletcher Walmsley! - Welcome to my photo blog! <br/> <br/>
                 This is a place where I add photos I think are cool. <br/>
-                The photos I add here are ones I think are photographically good, or because I like the people/place/vibe in them, or because it is a film photo and I need to post somewhere to justify paying ~$1.4 a photo! <br/> <br/>
-                The decent pics are usually taken on my Sony A6400 and can be found under the /shot-on/sony/ilce-6400 tag. <br/>
-                Film photos can be found under the /tag/film tag. Each film photo is also tagged with the film stock used. E.g. /tag/fujifilm-200
+                The photos I add here are ones I think are photographically good, 
+                or because I like the people/place/vibe in them, 
+                or because it is a film photo and I need to post somewhere to justify paying ~$1.4 a photo! <br/> <br/>
+                The decent pics are usually taken on my Sony A6400 and can be found under the <PhotoCamera camera={SONY_CAMERA} contrast="medium" prefetch={false}/> filter.<br/> <br/>
+                Film photos can be found under the <PhotoTag tag="film" contrast="medium" prefetch={false}/> tag.
+                Each film photo is also tagged with the film stock used. Such as: <PhotoTag tag="fujifilm-200" contrast="medium" prefetch={false}/>, or <PhotoTag tag="kodak-ultramax-400" contrast="medium" prefetch={false}/>.
                 </p>
               </div>
             </div>
           </Container>
-          <EmailInput/>
           <Container color={'blue'}>
             <div className="max-w-xl w-full">
               <div className="space-y-6">
                 <p>
-                About Me: <br/>
+                <b> Stay in contact! </b> <br/> <br/>
+                If you would like to be notified when I post new photos, please enter your email below! <br/>
+                These update emails are sent manually by me - as I like to personalise them!
+                So do not worry about spam, as that would be far too much effort 😜
+                </p>
+                <EmailInput/>
+              </div>
+            </div>
+          </Container>
+          <Container color={'blue'}>
+            <div className="max-w-xl w-full">
+              <div className="space-y-6">
+                <p>
+                <b>About Me:</b> <br/> <br/>
                 I am a Software Developer who is currently based in Christchurch, New Zealand.
-                I love everything outdoors and attempt to bring a camera of some sorts along with me <br/> <br/>
+                I love everything outdoors and attempt to bring a camera of some sorts along with me. <br/> <br/>
                 While I am a Software Engineer, my area of expertise is not in web development.
-                So I will not claim to have created this website, but rather forked and modified the excellent exif-photo-blog template by Sam Becker 
+                So I will not claim to have created this website, but rather forked and modified the excellent exif-photo-blog template by Sam Becker.
                 </p>
               </div>
             </div>
