@@ -4,7 +4,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-type State = { error: string } | { data: string };
+type State = { error: string } | { data: string } | undefined;
 
 export async function SubmitEmail(prevState: State, formData: FormData) {
   const email = formData.get("email") as string;
