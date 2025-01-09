@@ -1,12 +1,14 @@
 'use client';
 
 import { useActionState } from "react";
+// import { useAppState } from '@/state/AppState';
 import { SubmitEmail } from "@/lib/SubmitEmail";
 import { toast } from "sonner";
 import * as React from "react";
 
 const EmailInput = () => {
   const [state, setEmail] = useActionState(SubmitEmail, undefined);
+  // const { setShouldRespondToKeyboardCommands } = useAppState();
 
   React.useEffect(() => {
     if (!state) {
@@ -19,6 +21,10 @@ const EmailInput = () => {
       toast(`Error when sending email: ${state.error}`);
     }
   }, [state]);
+
+  // React.useEffect(() => {
+  //   setShouldRespondToKeyboardCommands?.(false);
+  // }, [setShouldRespondToKeyboardCommands]);
 
   return (
     <div>
