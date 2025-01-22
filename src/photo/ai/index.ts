@@ -70,7 +70,9 @@ export const getAiImageQuery = (
   case 'description-small': return 'Describe this image succinctly without the initial text "This image shows" or "This is a picture of"';
   case 'description': return 'Describe this image';
   case 'description-large': return 'Describe this image in detail';
-  case 'description-semantic': return 'List up to 5 things in this image without description as a comma-separated list';
+  case 'description-semantic': return ('Describe what items this image contains. ' + 
+  'Return only keywords, you can return variants of those key words, return upto 30 keywords, separate the keywords with a space. ' +
+  'Return the primary color as a keyword. Return only English key words. This result will be used for image indexing');
   }
 };
 
