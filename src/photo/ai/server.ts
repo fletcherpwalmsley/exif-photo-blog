@@ -68,7 +68,7 @@ export const generateAiImageQueries = async (
       if (textFieldsToGenerate.includes('semantic')) {
         semanticDescription = await generateOpenAiImageQuery(
           imageBase64,
-          getAiImageQuery('description-small'),
+          getAiImageQuery('description-semantic'),
           isBatch,
         );
       }
