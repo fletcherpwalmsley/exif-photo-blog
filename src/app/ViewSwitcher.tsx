@@ -2,7 +2,7 @@ import Switcher from '@/components/Switcher';
 import SwitcherItem from '@/components/SwitcherItem';
 import IconFeed from '@/app/IconFeed';
 import IconGrid from '@/app/IconGrid';
-import IconContact from '@/site/IconContact';
+import IconContact from '@/app/IconContact';
 import {
   PATH_ADMIN_PHOTOS,
   PATH_FEED_INFERRED,
