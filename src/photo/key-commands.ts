@@ -11,4 +11,5 @@ export const KEY_COMMANDS = {
   sync: 'S',
   search: ['⌘', 'K'],
   delete: ['⌘', 'BACKSPACE'],
+  contact: 'C',
 } as const;
