@@ -2,10 +2,12 @@ import Switcher from '@/components/Switcher';
 import SwitcherItem from '@/components/SwitcherItem';
 import IconFull from '@/components/icons/IconFull';
 import IconGrid from '@/components/icons/IconGrid';
+import IconContact from '@/components/icons/IconContact';
 import {
   doesPathOfferSort,
   PATH_FULL_INFERRED,
   PATH_GRID_INFERRED,
+  PATH_CONTACT
 } from '@/app/paths';
 import IconSearch from '../components/icons/IconSearch';
 import { useAppState } from '@/app/AppState';
@@ -26,7 +28,7 @@ import IconSort from '@/components/icons/IconSort';
 import { getSortConfigFromPath } from '@/photo/db/sort-path';
 import { motion } from 'framer-motion';
 
-export type SwitcherSelection = 'full' | 'grid' | 'admin';
+export type SwitcherSelection = 'full' | 'grid' | 'contact' |'admin';
 
 const GAP_CLASS = 'mr-1.5 sm:mr-2';
 
@@ -70,6 +72,7 @@ export default function AppViewSwitcher({
 
   const refHrefFull = useRef<HTMLAnchorElement>(null);
   const refHrefGrid = useRef<HTMLAnchorElement>(null);
+  const refHrefContact = useRef<HTMLAnchorElement>(null);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (!e.metaKey) {
@@ -79,6 +82,9 @@ export default function AppViewSwitcher({
         break;
       case KEY_COMMANDS.grid:
         if (pathname !== PATH_GRID_INFERRED) { refHrefGrid.current?.click(); }
+        break;
+      case KEY_COMMANDS.contact:
+        if (pathname !== PATH_CONTACT) { refHrefContact.current?.click(); }
         break;
       case KEY_COMMANDS.admin:
         if (isUserSignedIn) { setIsAdminMenuOpen(true); }
@@ -116,6 +122,19 @@ export default function AppViewSwitcher({
       noPadding
     />;
 
+    const renderItemContact = () =>
+      <SwitcherItem
+        icon={<IconContact includeTitle={false} />}
+        href={PATH_CONTACT}
+        hrefRef={refHrefContact}
+        active={currentSelection === 'contact'}
+        tooltip={{...SHOW_KEYBOARD_SHORTCUT_TOOLTIPS && {
+          content: 'Contact',
+          keyCommand: KEY_COMMANDS.contact,
+        }}}
+        noPadding
+      />;
+
   return (
     <div className={clsx('flex', className)}>
       <Switcher
@@ -127,6 +146,7 @@ export default function AppViewSwitcher({
       >
         {GRID_HOMEPAGE_ENABLED ? renderItemGrid : renderItemFull}
         {GRID_HOMEPAGE_ENABLED ? renderItemFull : renderItemGrid}
+        {renderItemContact()}
         {/* Show spinner if admin is suspected to be logged in */}
         {(isUserSignedInEager && !isUserSignedIn) &&
           <SwitcherItem
