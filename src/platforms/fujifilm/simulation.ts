@@ -238,7 +238,7 @@ const FILM_SIMULATION_LABELS: Record<
     medium: 'Kodak Gold 200',
     large: 'Kodak Gold 200',
   },
-  'Fujifilm-200': {
+  'fujifilm-200': {
     small: 'Fuji 200',
     medium: 'Fujifilm 200',
     large: 'Fujifilm 200',
