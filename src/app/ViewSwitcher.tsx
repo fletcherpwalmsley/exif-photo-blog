@@ -2,9 +2,11 @@ import Switcher from '@/components/Switcher';
 import SwitcherItem from '@/components/SwitcherItem';
 import IconFeed from '@/components/icons/IconFeed';
 import IconGrid from '@/components/icons/IconGrid';
+import IconContact from '@/app/IconContact';
 import {
   PATH_FEED_INFERRED,
   PATH_GRID_INFERRED,
+  PATH_CONTACT,
 } from '@/app/paths';
 import IconSearch from '../components/icons/IconSearch';
 import { useAppState } from '@/state/AppState';
@@ -13,7 +15,7 @@ import AdminAppMenu from '@/admin/AdminAppMenu';
 import Spinner from '@/components/Spinner';
 import clsx from 'clsx/lite';
 
-export type SwitcherSelection = 'feed' | 'grid' | 'admin';
+export type SwitcherSelection = 'feed' | 'grid' | 'contact' |'admin';
 
 export default function ViewSwitcher({
   currentSelection,
@@ -44,6 +46,14 @@ export default function ViewSwitcher({
       noPadding
     />;
 
+  const renderItemContact = () =>
+    <SwitcherItem
+      icon={<IconContact />}
+      href={PATH_CONTACT}
+      active={currentSelection === 'contact'}
+      noPadding
+    />;
+
   return (
     <div className={clsx(
       'flex gap-1 sm:gap-2',
@@ -52,6 +62,7 @@ export default function ViewSwitcher({
       <Switcher>
         {GRID_HOMEPAGE_ENABLED ? renderItemGrid : renderItemFeed}
         {GRID_HOMEPAGE_ENABLED ? renderItemFeed : renderItemGrid}
+        {renderItemContact()}
         {/* Show spinner if admin is suspected to be logged in */}
         {(isUserSignedInEager && !isUserSignedIn) &&
           <SwitcherItem
