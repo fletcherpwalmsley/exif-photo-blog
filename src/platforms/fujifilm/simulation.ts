@@ -31,9 +31,18 @@ type FujifilmMode =
   'nostalgic-neg' |
   'reala';
 
+type RealFilm = 
+  'xp2-super-400' |
+  'kodak-portra-400' |
+  'kodak-ultramax-400' |
+  'kodak-ultramax-800' |
+  'kodak-gold-200' |
+  'fujifilm-200';
+
 export type FujifilmSimulation =
   FujifilmSimulationFromSaturation |
-  FujifilmMode;
+  FujifilmMode |
+  RealFilm;
 
 const getFujifilmSimulationFromSaturation = (
   value?: number,
@@ -203,6 +212,36 @@ const FUJIFILM_SIMULATION_LABELS: Record<
     small: 'REALA',
     medium: 'REALA ACE',
     large: 'REALA ACE',
+  },
+  'xp2-super-400': {
+    small: 'XP2 400',
+    medium: 'Ilford XP2 400',
+    large: 'Ilford XP2 Super 400',
+  },
+  'kodak-portra-400': {
+    small: 'Porta 400',
+    medium: 'Kodak Portra 400',
+    large: 'Kodak Portra 400',
+  },
+  'kodak-ultramax-400': {
+    small: 'Ultramax 400',
+    medium: 'Kodak Ultramax 400',
+    large: 'Kodak Ultramax 400',
+  },
+  'kodak-ultramax-800': {
+    small: 'Ultramax 800',
+    medium: 'Kodak Ultramax 800',
+    large: 'Kodak Ultramax 800',
+  },
+  'kodak-gold-200': {
+    small: 'Gold 200',
+    medium: 'Kodak Gold 200',
+    large: 'Kodak Gold 200',
+  },
+  'fujifilm-200': {
+    small: 'Fuji 200',
+    medium: 'Fujifilm 200',
+    large: 'Fujifilm 200',
   },
 };
 
