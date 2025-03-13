@@ -32,7 +32,7 @@ type FujifilmMode =
   'reala';
 
 type RealFilm = 
-  'kodak-porta-400';
+  'kodak-portra-400';
 
 export type FujifilmSimulation =
   FujifilmSimulationFromSaturation |
@@ -208,10 +208,10 @@ const FILM_SIMULATION_LABELS: Record<
     medium: 'REALA ACE',
     large: 'REALA ACE',
   },
-  'kodak-porta-400': {
-    small: 'PORTA 400',
-    medium: 'PORTA 400',
-    large: 'KODAK PORTA 400',
+  'kodak-portra-400': {
+    small: 'Porta 400',
+    medium: 'Portra 400',
+    large: 'Kodak Portra 400',
   },
 };
 
