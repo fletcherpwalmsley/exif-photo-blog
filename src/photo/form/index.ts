@@ -112,7 +112,7 @@ const FORM_METADATA = (
     label: 'fujifilm simulation',
     selectOptions: FILM_SIMULATION_FORM_INPUT_OPTIONS,
     selectOptionsDefaultLabel: 'Unknown',
-    shouldHide: ({ make }) => make !== MAKE_FUJIFILM,
+    shouldHide: ({ make }) => make !== (MAKE_FUJIFILM || "OLYMPUS" || "PENTAX"),
     shouldNotOverwriteWithNullDataOnSync: true,
   },
   recipeTitle: {
