@@ -40,9 +40,8 @@ type RealFilm =
   'fujifilm-200';
 
 export type FujifilmSimulation =
-  // I don't have a Fuji camera. So disable all Fuji related films
-  // FujifilmSimulationFromSaturation |
-  // FujifilmMode |
+  FujifilmSimulationFromSaturation |
+  FujifilmMode |
   RealFilm;
 
 const getFujifilmSimulationFromSaturation = (
