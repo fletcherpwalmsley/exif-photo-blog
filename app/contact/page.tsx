@@ -1,5 +1,5 @@
 import Container from '@/components/Container';
-import SiteGrid from '@/components/SiteGrid';
+import AppGrid from '@/components/AppGrid';
 import ImageMedium from '@/components/image/ImageMedium';
 import EmailInput from '@/components/EmailInput';
 import PhotoTag from '@/tag/PhotoTag';
@@ -11,7 +11,7 @@ import {Camera} from '@/camera/index';
 export default async function AdminConfigurationPage() {
   const SONY_CAMERA: Camera = { make: 'Sony', model: 'ILCE-6400' };
   return (
-    <SiteGrid
+    <AppGrid
       contentMain={
         <div className="space-y-4">
           <div className="flex items-center">

@@ -2,7 +2,7 @@ import Switcher from '@/components/Switcher';
 import SwitcherItem from '@/components/SwitcherItem';
 import IconFeed from '@/components/icons/IconFeed';
 import IconGrid from '@/components/icons/IconGrid';
-import IconContact from '@/app/IconContact';
+import IconContact from '@/components/icons/IconContact';
 import {
   PATH_FEED_INFERRED,
   PATH_GRID_INFERRED,
