@@ -73,7 +73,8 @@ export const getAiImageQuery = (
         : tagQuery;
     case 'semantic': return 'Describe this image in around 10 keywords, with no adjectives, adverbs, or initial text . \
                               Return the keywords only, separated by a space. Use terms that are highly specific to the image and not redundant. \
-                              This information will be used for semantic search, so focus on core content that a user is likely to search for, such as main objects, subjects, scenes, and colors';
+                              This information will be used for semantic search, so focus on core content that a user is likely to search for, such as main objects, subjects, scenes, and colors\
+                              Include at least one color.';
   }
 };
 
