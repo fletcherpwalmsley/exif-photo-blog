@@ -71,7 +71,9 @@ export const getAiImageQuery = (
       return tags
         ? `${tagQuery}. Consider using some of these existing tags, but only if they are relevant: ${tags}.`
         : tagQuery;
-    case 'semantic': return 'Describe this image succinctly without initial text like "This image shows" or "This is a picture of."';
+    case 'semantic': return 'Describe this image in around 10 keywords, with no adjectives, adverbs, or initial text . \
+                              Return the keywords only, separated by a space. Use terms that are highly specific to the image and not redundant. \
+                              This information will be used for semantic search, so focus on core content that a user is likely to search for, such as main objects, subjects, scenes, and colors';
   }
 };
 
