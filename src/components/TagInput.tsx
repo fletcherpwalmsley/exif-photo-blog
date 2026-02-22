@@ -417,7 +417,7 @@ export default function TagInput({
             className={clsx(
               'component-surface',
               'absolute top-3 w-full px-1.5 py-1.5',
-              'max-h-[8rem] overflow-y-auto flex flex-col',
+              'max-h-[16rem] overflow-y-auto flex flex-col',
               'shadow-lg dark:shadow-xl',
             )}
           >
