@@ -34,7 +34,7 @@ import { SWR_KEYS } from '@/swr';
 import IconAbout from '@/components/icons/IconAbout';
 import IconGridMasonry from '@/components/icons/IconGridMasonry';
 
-export type SwitcherSelection = 'full' | 'grid' | 'about' | 'contact' |'admin';
+export type SwitcherSelection = 'full' | 'grid' | 'about' |'admin';
 
 const GAP_CLASS_RIGHT = 'mr-1.5 sm:mr-2';
 const GAP_CLASS_LEFT  = 'ml-0.5 sm:ml-1';
@@ -106,9 +106,6 @@ export default function AppViewSwitcher({
         case KEY_COMMANDS.grid:
           if (pathname !== PATH_GRID_INFERRED) { refHrefGrid.current?.click(); }
           break;
-        case KEY_COMMANDS.contact:
-        if (pathname !== PATH_CONTACT) { refHrefContact.current?.click(); }
-        break;
       case KEY_COMMANDS.about:
           if (pathname !== PATH_ABOUT) { refHrefAbout.current?.click(); }
           break;
@@ -145,19 +142,6 @@ export default function AppViewSwitcher({
       noPadding
     />;
 
-    const renderItemContact = () =>
-      <SwitcherItem
-        icon={<IconContact includeTitle={false} />}
-        href={PATH_CONTACT}
-        hrefRef={refHrefContact}
-        active={currentSelection === 'contact'}
-        tooltip={{...SHOW_KEYBOARD_SHORTCUT_TOOLTIPS && {
-          content: 'Contact',
-          keyCommand: KEY_COMMANDS.contact,
-        }}}
-        noPadding
-      />;
-
   return (
     <div className={clsx('flex', className)}>
       <Switcher
@@ -181,7 +165,6 @@ export default function AppViewSwitcher({
             }}}
             noPadding
           />}
-        {renderItemContact()}
         {/* Show spinner if admin is suspected to be logged in */}
         {(isUserSignedInEager && !isUserSignedIn) &&
           <SwitcherItem
